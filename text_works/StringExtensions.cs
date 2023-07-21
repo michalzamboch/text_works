@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace text_works
 {
-    public static class StringExtensions
+    internal static class StringExtensions
     {
         private static readonly Dictionary<char, char> specialChars = new()
         {

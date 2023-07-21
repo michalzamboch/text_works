@@ -1,10 +1,7 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media.TextFormatting;
-using Microsoft.Win32;
 
 namespace text_works
 {
@@ -40,17 +37,17 @@ namespace text_works
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
-            var filePath = FileOpener.GetOpenFilePath();
-            Debug.Write(filePath);
+            var loadedText = FileManager.LoadTextFromOpenedFile();
 
-            try
+            if (loadedText != "")
             {
-                TextWithDiacritics.Text = File.ReadAllText(filePath);
+                TextWithDiacritics.Text = loadedText;
             }
-            catch
-            {
-                Debug.Write($"Can not load {filePath}");
-            }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            FileManager.SaveText(removedDiacritics);
         }
     }
 }
