@@ -17,7 +17,6 @@
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
                              VerticalScrollBarVisibility="Visible">
-                        Hint empty...
                     </TextBox>
 
                     <Label FontWeight="Bold">Result text:</Label>
@@ -25,18 +24,36 @@
                     <TextBox Name="TextWithoutDiacritics"
                              TextWrapping="Wrap"
                              AcceptsReturn="True"
-                             VerticalScrollBarVisibility="Visible">
-                        Hint empty...
+                             VerticalScrollBarVisibility="Visible"
+                             IsReadOnly="True">
                     </TextBox>
 
                     <StackPanel
-                        Orientation="Vertical"
+                        Orientation="Horizontal"
                         HorizontalAlignment="Left"
                         Margin="0 5">
                         <Button 
+                            x:Name="ClearButton"
+                            Padding="15 0 15 0"
+                            Margin="0 0 5 0"
+                            Click="ClearButton_Click">
+                            Clear
+                        </Button>
+                        
+                        <Button 
                             x:Name="CopyButton"
-                            Padding="15 0 15 0">
+                            Padding="15 0 15 0"
+                            Margin="0 0 5 0"
+                            Click="CopyButton_Click">
                             Copy
+                        </Button>
+                        
+                        <Button 
+                            x:Name="LoadButton"
+                            Padding="15 0 15 0"
+                            Margin="0 0 5 0"
+                            Click="LoadButton_Click">
+                            Load
                         </Button>
                     </StackPanel>
                 </StackPanel>

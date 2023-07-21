@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace text_works
 {
@@ -41,6 +38,8 @@ namespace text_works
             { 'Š', 'S' },
             { 'Ý', 'Y' },
         };
+
+        public static IReadOnlyDictionary<char, char> SpecialCharecters => specialChars;
 
         public static string RemoveDiacritics(this string input)
         {
