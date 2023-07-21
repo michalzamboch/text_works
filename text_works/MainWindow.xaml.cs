@@ -32,11 +32,13 @@ namespace text_works
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
+            status.Set("Clear");
             TextWithDiacritics.Clear();
         }
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
+            status.Set("Load");
             var loadedText = FileManager.LoadTextFromOpenedFile();
 
             if (loadedText != "")
@@ -47,6 +49,7 @@ namespace text_works
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            status.Set("Save");
             FileManager.SaveText(removedDiacritics);
         }
     }
