@@ -1,6 +1,5 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace text_works
@@ -9,23 +8,24 @@ namespace text_works
     {
         private string removedDiacritics => TextWithDiacritics.Text.RemoveDiacritics();
         public readonly RoutedCommand CopyCommand = new RoutedCommand();
+        public readonly IStatus status;
 
         public MainWindow()
         {
             InitializeComponent();
+            status = new Status(StatusLabel);
 
             var keyGesture = new KeyGesture(Key.C, ModifierKeys.Control);
             CopyCommand.InputGestures.Add(keyGesture);
-
-            TextWithDiacritics.TextChanged += TextWithDiacritics_TextChanged;
         }
 
         private void CopyButton_Click(object sender, RoutedEventArgs e)
         {
+            status.Set("Copy");
             Clipboard.SetText(removedDiacritics);
         }
 
-        private void TextWithDiacritics_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void TextWithDiacritics_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextWithoutDiacritics.Text = removedDiacritics;
         }

@@ -5,67 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:text_works"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Text Works" Height="450" Width="800"
+        MinHeight="300" MinWidth="400">
 
     <Grid Margin="0">
-        <TabControl>
-            <TabItem Header="Diacritics">
-                <StackPanel Margin="10">
-                    <Label FontWeight="Bold">Input text:</Label>
+        <DockPanel LastChildFill="True">
+            <TextBlock
+                x:Name="StatusLabel"
+                DockPanel.Dock="Bottom"
+                Background="LightGray"
+                Padding="2"/>
 
-                    <TextBox Name="TextWithDiacritics"
-                             TextWrapping="Wrap"
-                             AcceptsReturn="True"
-                             VerticalScrollBarVisibility="Visible">
-                    </TextBox>
+            <TabControl>
+                <TabItem Header="Diacritics">
+                    <StackPanel Margin="10">
+                        <Label FontWeight="Bold">Input:</Label>
 
-                    <Label FontWeight="Bold">Result text:</Label>
+                        <TextBox Name="TextWithDiacritics"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Visible"
+                                 TextChanged="TextWithDiacritics_TextChanged"/>
 
-                    <TextBox Name="TextWithoutDiacritics"
-                             TextWrapping="Wrap"
-                             AcceptsReturn="True"
-                             VerticalScrollBarVisibility="Visible"
-                             IsReadOnly="True">
-                    </TextBox>
+                        <Label FontWeight="Bold">Result:</Label>
 
-                    <StackPanel
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Left"
-                        Margin="0 5">
-                        <Button 
-                            x:Name="ClearButton"
-                            Padding="15 0 15 0"
-                            Margin="0 0 5 0"
-                            Click="ClearButton_Click">
-                            Clear
-                        </Button>
-                        
-                        <Button 
-                            x:Name="CopyButton"
-                            Padding="15 0 15 0"
-                            Margin="0 0 5 0"
-                            Click="CopyButton_Click">
-                            Copy
-                        </Button>
-                        
-                        <Button 
-                            x:Name="LoadButton"
-                            Padding="15 0 15 0"
-                            Margin="0 0 5 0"
-                            Click="LoadButton_Click">
-                            Load
-                        </Button>
-                        
-                        <Button 
-                            x:Name="SaveButton"
-                            Padding="15 0 15 0"
-                            Margin="0 0 5 0"
-                            Click="SaveButton_Click">
-                            Save
-                        </Button>
+                        <TextBox Name="TextWithoutDiacritics"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Visible"
+                                 IsReadOnly="True"/>
+
+                        <StackPanel
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Left"
+                            Margin="0 5">
+                            <Button 
+                                x:Name="ClearButton"
+                                Padding="15 0 15 0"
+                                Margin="0 0 5 0"
+                                Click="ClearButton_Click">
+                                Clear
+                            </Button>
+                            
+                            <Button 
+                                x:Name="CopyButton"
+                                Padding="15 0 15 0"
+                                Margin="0 0 5 0"
+                                Click="CopyButton_Click">
+                                Copy
+                            </Button>
+                            
+                            <Button 
+                                x:Name="LoadButton"
+                                Padding="15 0 15 0"
+                                Margin="0 0 5 0"
+                                Click="LoadButton_Click">
+                                Load
+                            </Button>
+                            
+                            <Button 
+                                x:Name="SaveButton"
+                                Padding="15 0 15 0"
+                                Margin="0 0 5 0"
+                                Click="SaveButton_Click">
+                                Save
+                            </Button>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </TabItem>
-        </TabControl>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
     </Grid>
 </Window>
