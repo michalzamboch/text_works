@@ -8,6 +8,14 @@
         Title="Text Works" Height="450" Width="800"
         MinHeight="300" MinWidth="400">
 
+    <Window.InputBindings>
+        <KeyBinding Command="ApplicationCommands.Close" Key="Esc" />
+    </Window.InputBindings>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommandBinding_Executed" />
+    </Window.CommandBindings>
+
     <Grid Margin="0">
         <DockPanel LastChildFill="True">
             <TextBlock
@@ -72,6 +80,10 @@
                             </Button>
                         </StackPanel>
                     </StackPanel>
+                </TabItem>
+                
+                <TabItem Header="Duplicates">
+
                 </TabItem>
             </TabControl>
         </DockPanel>

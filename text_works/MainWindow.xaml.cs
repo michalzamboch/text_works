@@ -19,6 +19,11 @@ namespace text_works
             CopyCommand.InputGestures.Add(keyGesture);
         }
 
+        private void CloseCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Close();
+        }
+
         private void CopyButton_Click(object sender, RoutedEventArgs e)
         {
             status.Set("Copy");
