@@ -26,10 +26,12 @@ namespace text_works
         {
             var duplicates = Resx.FindDuplicatesFromFile();
 
+            DuplicatesTextBlock.Text = string.Empty;
             foreach (var line in duplicates)
             {
                 DuplicatesTextBlock.Text += line + "\n";
             }
+            
             status.Set("Duplicates found.");
         }
     }
