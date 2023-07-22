@@ -66,14 +66,14 @@ namespace text_works
 
         public static void SaveText(string text)
         {
-            if (text == null)
+            if (string.IsNullOrWhiteSpace(text))
             {
                 Debug.Write("Input text is null.");
                 return;
             }
 
             var fileName = GetSaveFilePath();
-            if (fileName == null || fileName == "")
+            if (string.IsNullOrEmpty(fileName))
             {
                 Debug.Write("Incorrect save file name.");
                 return;
