@@ -1,35 +1,19 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace text_works
 {
     internal class FileManager
     {
-        public static string LoadTextFromOpenedFile()
-        {
-            var filePath = GetOpenFilePath();
-            Debug.Write(filePath);
-
-            try
-            {
-                return File.ReadAllText(filePath);
-            }
-            catch (Exception e)
-            {
-                Debug.Write(e.Message);
-                return "";
-            }
-        }
-
         public static string GetOpenFilePath()
         {
             var dialog = new OpenFileDialog
             {
                 FileName = "Document",
-                DefaultExt = ".txt",
-                Filter = "Text documents (.txt)|*.txt"
             };
 
             bool? result = dialog.ShowDialog();
@@ -46,6 +30,38 @@ namespace text_works
             }
 
             return dialog.FileName;
+        }
+
+        public static string LoadTextFromOpenedFile()
+        {
+            var filePath = GetOpenFilePath();
+            Debug.Write(filePath);
+
+            try
+            {
+                return File.ReadAllText(filePath);
+            }
+            catch (Exception e)
+            {
+                Debug.Write(e.Message);
+                return "";
+            }
+        }
+
+        public static List<string> LoadLinesFromOpenedFile()
+        {
+            var filePath = GetOpenFilePath();
+            Debug.Write(filePath);
+
+            try
+            {
+                return File.ReadAllLines(filePath).ToList();
+            }
+            catch (Exception e)
+            {
+                Debug.Write(e.Message);
+                return new List<string>();
+            }
         }
 
         public static void SaveText(string text)
@@ -78,8 +94,6 @@ namespace text_works
             var dialog = new SaveFileDialog
             {
                 FileName = "Result",
-                DefaultExt = ".txt",
-                Filter = "Text documents (.txt)|*.txt"
             };
 
             bool? result = dialog.ShowDialog();

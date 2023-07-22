@@ -46,7 +46,7 @@ namespace text_works
             status.Set("Load");
             var loadedText = FileManager.LoadTextFromOpenedFile();
 
-            if (loadedText != "")
+            if (!string.IsNullOrEmpty(loadedText))
             {
                 TextWithDiacritics.Text = loadedText;
             }

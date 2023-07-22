@@ -83,7 +83,7 @@
                 </TabItem>
                 
                 <TabItem Header="Duplicates">
-
+                    <Frame Source="DuplicateUserControl.xaml"></Frame>
                 </TabItem>
             </TabControl>
         </DockPanel>
