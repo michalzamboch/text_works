@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace text_works
+namespace UI
 {
     public class Status : IStatus
     {

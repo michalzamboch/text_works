@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using Model;
 
-namespace text_works
+namespace UI
 {
     /// <summary>
     /// Interaction logic for DuplicateUserControl.xaml

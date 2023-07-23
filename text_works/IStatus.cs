@@ -1,4 +1,4 @@
-﻿namespace text_works
+﻿namespace UI
 {
     public interface IStatus
     {
