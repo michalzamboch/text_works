@@ -26,64 +26,11 @@
 
             <TabControl>
                 <TabItem Header="Diacritics">
-                    <StackPanel Margin="10">
-                        <Label FontWeight="Bold">Input:</Label>
-
-                        <TextBox Name="TextWithDiacritics"
-                                 TextWrapping="Wrap"
-                                 AcceptsReturn="True"
-                                 VerticalScrollBarVisibility="Visible"
-                                 TextChanged="TextWithDiacritics_TextChanged"/>
-
-                        <Label FontWeight="Bold">Result:</Label>
-
-                        <TextBox Name="TextWithoutDiacritics"
-                                 TextWrapping="Wrap"
-                                 AcceptsReturn="True"
-                                 VerticalScrollBarVisibility="Visible"
-                                 IsReadOnly="True"/>
-
-                        <StackPanel
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Left"
-                            Margin="0 5">
-                            <Button 
-                                x:Name="ClearButton"
-                                Padding="15 0 15 0"
-                                Margin="0 0 5 0"
-                                Click="ClearButton_Click">
-                                Clear
-                            </Button>
-                            
-                            <Button 
-                                x:Name="CopyButton"
-                                Padding="15 0 15 0"
-                                Margin="0 0 5 0"
-                                Click="CopyButton_Click">
-                                Copy
-                            </Button>
-                            
-                            <Button 
-                                x:Name="LoadButton"
-                                Padding="15 0 15 0"
-                                Margin="0 0 5 0"
-                                Click="LoadButton_Click">
-                                Load
-                            </Button>
-                            
-                            <Button 
-                                x:Name="SaveButton"
-                                Padding="15 0 15 0"
-                                Margin="0 0 5 0"
-                                Click="SaveButton_Click">
-                                Save
-                            </Button>
-                        </StackPanel>
-                    </StackPanel>
+                    <Frame Source="UserControls/DiacriticsUserControl.xaml"></Frame>
                 </TabItem>
                 
                 <TabItem Header="Duplicates">
-                    <Frame Source="DuplicateUserControl.xaml"></Frame>
+                    <Frame Source="UserControls/DuplicateUserControl.xaml"></Frame>
                 </TabItem>
             </TabControl>
         </DockPanel>
