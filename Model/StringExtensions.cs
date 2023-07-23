@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace text_works
+namespace Model
 {
-    internal static class StringExtensions
+    public static class StringExtensions
     {
         private static readonly Dictionary<char, char> specialChars = new()
         {

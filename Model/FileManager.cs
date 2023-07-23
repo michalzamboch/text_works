@@ -5,9 +5,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace text_works
+namespace Model
 {
-    internal class FileManager
+    public sealed class FileManager
     {
         public static string GetOpenFilePath()
         {

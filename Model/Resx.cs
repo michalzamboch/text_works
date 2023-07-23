@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Xml;
 
-namespace text_works
+namespace Model
 {
-    internal sealed class Resx
+    public sealed class Resx
     {
         public static List<string> FindDuplicatesFromFile()
         {
             var loadedText = FileManager.GetOpenFilePath();
             return TryFindDuplicateKeys(loadedText);
         }
-        
+
         public static List<string> TryFindDuplicateKeys(string path)
         {
             try
@@ -25,13 +25,13 @@ namespace text_works
                 return new List<string>();
             }
         }
-        
+
         private static List<string> FindDuplicateKeys(string path)
         {
             var duplicates = new List<string>();
             var keysSet = new HashSet<string>();
             var reader = new XmlTextReader(path);
-            
+
             while (reader.Read())
             {
                 string? key = reader.GetAttribute("name");
