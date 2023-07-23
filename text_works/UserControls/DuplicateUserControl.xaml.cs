@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using Model;
 
@@ -26,13 +27,25 @@ namespace UI.UserControls
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
             var duplicates = Resx.FindDuplicatesFromFile();
-
+            
             DuplicatesTextBlock.Text = string.Empty;
+            if (duplicates.Count == 0)
+            {
+                status.Set("No duplicates found.");
+            }
+            else
+            {
+                WriteOutDuplicates(duplicates);
+            }
+        }
+
+        private void WriteOutDuplicates(List<string> duplicates)
+        {
             foreach (var line in duplicates)
             {
                 DuplicatesTextBlock.Text += line + "\n";
             }
-            
+
             status.Set("Duplicates found.");
         }
     }
