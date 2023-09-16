@@ -9,7 +9,6 @@ namespace UI
     {
         public readonly RoutedCommand CopyCommand = new RoutedCommand();
         public readonly IServices Services;
-        
 
         public MainWindow()
         {

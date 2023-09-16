@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Model
 {
-    public static class StringExtensions
+    public static class Diacritics
     {
         public static string RemoveDiacritics(this string input)
         {
