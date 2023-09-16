@@ -1,65 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Globalization;
+using System.Text;
 
 namespace Model
 {
     public static class StringExtensions
     {
-        private static readonly IReadOnlyDictionary<char, char> specialChars = new Dictionary<char, char>()
-        {
-            { 'ě', 'e' },
-            { 'č', 'c' },
-            { 'ř', 'r' },
-            { 'ž', 'z' },
-            { 'á', 'a' },
-            { 'í', 'i' },
-            { 'é', 'e' },
-            { 'ó', 'o' },
-            { 'ú', 'u' },
-            { 'ů', 'u' },
-            { 'ť', 't' },
-            { 'ď', 'd' },
-            { 'ň', 'n' },
-            { 'š', 's' },
-            { 'ý', 'y' },
-            { 'Ě', 'E' },
-            { 'Č', 'C' },
-            { 'Ř', 'R' },
-            { 'Ž', 'Z' },
-            { 'Á', 'A' },
-            { 'Í', 'I' },
-            { 'É', 'E' },
-            { 'Ó', 'O' },
-            { 'Ú', 'U' },
-            { 'Ů', 'U' },
-            { 'Ť', 'T' },
-            { 'Ď', 'D' },
-            { 'Ň', 'N' },
-            { 'Š', 'S' },
-            { 'Ý', 'Y' },
-        };
-
         public static string RemoveDiacritics(this string input)
         {
-            if (input == null)
-            {
-                throw new ArgumentNullException("input");
-            }
+            var normalizedString = input.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder(capacity: normalizedString.Length);
 
-            string output = "";
-            foreach (var c in input)
+            for (int i = 0; i < normalizedString.Length; i++)
             {
-                if (specialChars.ContainsKey(c))
+                char c = normalizedString[i];
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
                 {
-                    output += specialChars[c];
-                }
-                else
-                {
-                    output += c;
+                    stringBuilder.Append(c);
                 }
             }
 
-            return output;
+            return stringBuilder
+                .ToString()
+                .Normalize(NormalizationForm.FormC);
         }
     }
 }

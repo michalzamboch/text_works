@@ -46,8 +46,15 @@ namespace UI.UserControls
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            services.Status.Set("Save");
-            FileManager.SaveText(removedDiacritics);
+            if (string.IsNullOrWhiteSpace(removedDiacritics))
+            {
+                services.Status.Set("Nothing to save.");
+            }
+            else
+            {
+                FileManager.SaveText(removedDiacritics);
+                services.Status.Set("Saved.");
+            }
         }
     }
 }

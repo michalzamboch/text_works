@@ -6,20 +6,35 @@
              xmlns:local="clr-namespace:UI.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
-    
-    <DockPanel
-        LastChildFill="True">
+
+    <Grid>
         
-        <Label FontWeight="Bold"
-               DockPanel.Dock="Top">
-            Duplicates:
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="25"/>
+            <RowDefinition MinHeight="100" Height="40*"/>
+            <RowDefinition MinHeight="30" />
+        </Grid.RowDefinitions>
+
+        <Label 
+           Grid.Row="0"
+           FontWeight="Bold">
+           Duplicates:
         </Label>
+        
+        <TextBox
+            Grid.Row="1"
+            Name="DuplicatesTextBlock"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Auto"
+            IsReadOnly="True"
+            Height="Auto"/>
 
         <StackPanel
+            Grid.Row="2"
             Orientation="Horizontal"
             HorizontalAlignment="Left"
-            Margin="0 5"
-            DockPanel.Dock="Bottom">
+            Margin="0 5">
 
             <Button 
                 x:Name="LoadButton"
@@ -38,12 +53,5 @@
             </Button>
         </StackPanel>
 
-        <TextBox Name="DuplicatesTextBlock"
-                 TextWrapping="Wrap"
-                 AcceptsReturn="True"
-                 VerticalScrollBarVisibility="Auto"
-                 IsReadOnly="True"
-                 Height="Auto"
-                 DockPanel.Dock="Top"/>
-    </DockPanel>
+    </Grid>
 </UserControl>
