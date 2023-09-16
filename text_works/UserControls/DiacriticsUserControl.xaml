@@ -8,7 +8,6 @@
              d:DesignHeight="600" d:DesignWidth="800">
 
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="25"/>
             <RowDefinition MinHeight="100" Height="40*"/>
@@ -19,29 +18,31 @@
 
         <Label Grid.Row="0" FontWeight="Bold">Input:</Label>
 
-        <TextBox Name="TextWithDiacritics"
-                 TextWrapping="Wrap"
-                 AcceptsReturn="True"
-                 VerticalScrollBarVisibility="Visible"
-                 TextChanged="TextWithDiacritics_TextChanged"
-                 Height="Auto"
-                 Width="Auto"
-                 VerticalAlignment="Stretch"
-                 HorizontalAlignment="Stretch"
-                 Grid.Row="1"/>
+        <TextBox
+            Name="TextWithDiacritics"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Visible"
+            TextChanged="TextWithDiacritics_TextChanged"
+            Height="Auto"
+            Width="Auto"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Grid.Row="1"/>
 
         <Label Grid.Row="2" FontWeight="Bold">Result:</Label>
 
-        <TextBox Name="TextWithoutDiacritics"
-                 Grid.Row="3"
-                 TextWrapping="Wrap"
-                 AcceptsReturn="True"
-                 VerticalScrollBarVisibility="Visible"
-                 IsReadOnly="True"
-                 Height="Auto"
-                 Width="Auto"
-                 VerticalAlignment="Stretch"
-                 HorizontalAlignment="Stretch"/>
+        <TextBox
+            Name="TextWithoutDiacritics"
+            Grid.Row="3"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Visible"
+            IsReadOnly="True"
+            Height="Auto"
+            Width="Auto"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"/>
 
         <StackPanel
             Orientation="Horizontal"
