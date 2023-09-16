@@ -1,26 +1,24 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Model;
+using UI.UIServices;
 
 namespace UI.UserControls
 {
-    /// <summary>
-    /// Interaction logic for DiacriticsUserControl.xaml
-    /// </summary>
     public partial class DiacriticsUserControl : UserControl
     {
         private string removedDiacritics => TextWithDiacritics.Text.RemoveDiacritics();
-        private readonly IStatus status;
+        private readonly IServices services;
         
         public DiacriticsUserControl()
         {
-            status = ((MainWindow)Application.Current.MainWindow).status;
+            services = ((MainWindow)Application.Current.MainWindow).Services;
             InitializeComponent();
         }
 
         private void CopyButton_Click(object sender, RoutedEventArgs e)
         {
-            status.Set("Copy");
+            services.Status.Set("Copy");
             Clipboard.SetText(removedDiacritics);
         }
 
@@ -31,13 +29,13 @@ namespace UI.UserControls
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            status.Set("Clear");
+            services.Status.Set("Clear");
             TextWithDiacritics.Clear();
         }
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
-            status.Set("Load");
+            services.Status.Set("Load");
             var loadedText = FileManager.LoadTextFromOpenedFile();
 
             if (!string.IsNullOrEmpty(loadedText))
@@ -48,7 +46,7 @@ namespace UI.UserControls
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            status.Set("Save");
+            services.Status.Set("Save");
             FileManager.SaveText(removedDiacritics);
         }
     }

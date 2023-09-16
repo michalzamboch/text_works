@@ -5,7 +5,7 @@ namespace Model
 {
     public static class StringExtensions
     {
-        private static readonly Dictionary<char, char> specialChars = new()
+        private static readonly IReadOnlyDictionary<char, char> specialChars = new Dictionary<char, char>()
         {
             { 'ě', 'e' },
             { 'č', 'c' },
@@ -38,8 +38,6 @@ namespace Model
             { 'Š', 'S' },
             { 'Ý', 'Y' },
         };
-
-        public static IReadOnlyDictionary<char, char> SpecialCharecters => specialChars;
 
         public static string RemoveDiacritics(this string input)
         {

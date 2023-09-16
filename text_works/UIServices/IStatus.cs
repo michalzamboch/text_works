@@ -1,4 +1,4 @@
-﻿namespace UI
+﻿namespace UI.UIServices
 {
     public interface IStatus
     {

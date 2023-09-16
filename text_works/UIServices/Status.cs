@@ -1,8 +1,8 @@
 ﻿using System.Windows.Controls;
 
-namespace UI
+namespace UI.UIServices
 {
-    public class Status : IStatus
+    internal sealed class Status : IStatus
     {
         private readonly TextBlock? textBlock;
 

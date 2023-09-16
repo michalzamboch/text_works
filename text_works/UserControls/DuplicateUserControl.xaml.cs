@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Model;
+using UI.UIServices;
 
 namespace UI.UserControls
 {
@@ -9,17 +10,17 @@ namespace UI.UserControls
     /// </summary>
     public partial class DuplicateUserControl : UserControl
     {
-        private readonly IStatus status;
+        private readonly IServices services;
 
         public DuplicateUserControl()
         {
-            status = ((MainWindow)Application.Current.MainWindow).status;
+            services = ((MainWindow)Application.Current.MainWindow).Services;
             InitializeComponent();
         }
         
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            status.Set("Buffer cleared.");
+            services.Status.Set("Buffer cleared.");
             DuplicatesTextBlock.Text = string.Empty;
         }
 
@@ -30,12 +31,12 @@ namespace UI.UserControls
             if (duplicates.Count == 0)
             {
                 DuplicatesTextBlock.Text = string.Empty;
-                status.Set("No duplicates found.");
+                services.Status.Set("No duplicates found.");
             }
             else
             {
                 DuplicatesTextBlock.Text = string.Join("\n", duplicates);
-                status.Set($"{duplicates.Count} duplicates found.");
+                services.Status.Set($"{duplicates.Count} duplicates found.");
             }
         }
     }

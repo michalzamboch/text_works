@@ -11,8 +11,9 @@
         LastChildFill="True">
         
         <Label FontWeight="Bold"
-               DockPanel.Dock="Top"
-               >Duplicates:</Label>
+               DockPanel.Dock="Top">
+            Duplicates:
+        </Label>
 
         <StackPanel
             Orientation="Horizontal"

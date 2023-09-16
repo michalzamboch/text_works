@@ -1,17 +1,19 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using UI.UIServices;
 
 namespace UI
 {
     public partial class MainWindow : Window
     {
         public readonly RoutedCommand CopyCommand = new RoutedCommand();
-        public readonly IStatus status;
+        public readonly IServices Services;
+        
 
         public MainWindow()
         {
             InitializeComponent();
-            status = new Status(StatusLabel);
+            Services = new Services(this);
 
             var keyGesture = new KeyGesture(Key.C, ModifierKeys.Control);
             CopyCommand.InputGestures.Add(keyGesture);

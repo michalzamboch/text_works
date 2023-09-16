@@ -8,8 +8,7 @@
         Title="Text Works"
         Height="600" Width="800"
         MinHeight="600" MinWidth="800"
-        ResizeMode="CanResize"
-        WindowState="Maximized">
+        ResizeMode="CanResize">
 
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="Esc" />
