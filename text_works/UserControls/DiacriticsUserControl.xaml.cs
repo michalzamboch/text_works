@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using Model;
+using System.Windows;
 using System.Windows.Controls;
-using Model;
 using UI.UIServices;
 
 namespace UI.UserControls
@@ -9,7 +9,7 @@ namespace UI.UserControls
     {
         private string removedDiacritics => TextWithDiacritics.Text.RemoveDiacritics();
         private readonly IServices services;
-        
+
         public DiacriticsUserControl()
         {
             services = ((MainWindow)Application.Current.MainWindow).Services;

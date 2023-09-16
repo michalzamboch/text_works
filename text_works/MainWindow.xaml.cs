@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using System.Windows.Controls;
 using UI.UIServices;
 
 namespace UI
@@ -22,6 +23,11 @@ namespace UI
         private void CloseCommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Close();
+        }
+
+        private void TabSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Services.Status.Clear();
         }
     }
 }

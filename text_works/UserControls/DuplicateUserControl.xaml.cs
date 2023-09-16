@@ -1,13 +1,10 @@
-﻿using System.Windows;
+﻿using Model;
+using System.Windows;
 using System.Windows.Controls;
-using Model;
 using UI.UIServices;
 
 namespace UI.UserControls
 {
-    /// <summary>
-    /// Interaction logic for DuplicateUserControl.xaml
-    /// </summary>
     public partial class DuplicateUserControl : UserControl
     {
         private readonly IServices services;
@@ -17,7 +14,7 @@ namespace UI.UserControls
             services = ((MainWindow)Application.Current.MainWindow).Services;
             InitializeComponent();
         }
-        
+
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             services.Status.Set("Buffer cleared.");
@@ -27,7 +24,7 @@ namespace UI.UserControls
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
             var duplicates = Resx.FindDuplicatesFromFile();
-            
+
             if (duplicates.Count == 0)
             {
                 DuplicatesTextBlock.Text = string.Empty;
