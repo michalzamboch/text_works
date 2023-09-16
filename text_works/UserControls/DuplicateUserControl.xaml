@@ -5,40 +5,44 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UI.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel Margin="10">
+             d:DesignHeight="600" d:DesignWidth="800">
+    
+    <DockPanel
+        LastChildFill="True">
+        
+        <Label FontWeight="Bold"
+               DockPanel.Dock="Top"
+               >Duplicates:</Label>
 
-            <Label FontWeight="Bold">Duplicates:</Label>
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Left"
+            Margin="0 5"
+            DockPanel.Dock="Bottom">
 
-            <TextBox Name="DuplicatesTextBlock"
-                     TextWrapping="Wrap"
-                     AcceptsReturn="True"
-                     VerticalScrollBarVisibility="Visible"
-                     IsReadOnly="True"/>
+            <Button 
+                x:Name="LoadButton"
+                Padding="15 0 15 0"
+                Margin="0 0 5 0"
+                Click="LoadButton_Click">
+                Load
+            </Button>
 
-            <StackPanel
-                Orientation="Horizontal"
-                HorizontalAlignment="Left"
-                Margin="0 5">
-
-                <Button 
-                    x:Name="LoadButton"
-                    Padding="15 0 15 0"
-                    Margin="0 0 5 0"
-                    Click="LoadButton_Click">
-                    Load
-                </Button>
-
-                <Button 
-                    x:Name="ClearButton"
-                    Padding="15 0 15 0"
-                    Margin="0 0 5 0"
-                    Click="ClearButton_Click">
-                    Clear
-                </Button>
-
-            </StackPanel>
+            <Button 
+                x:Name="ClearButton"
+                Padding="15 0 15 0"
+                Margin="0 0 5 0"
+                Click="ClearButton_Click">
+                Clear
+            </Button>
         </StackPanel>
-    </Grid>
+
+        <TextBox Name="DuplicatesTextBlock"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 IsReadOnly="True"
+                 Height="Auto"
+                 DockPanel.Dock="Top"/>
+    </DockPanel>
 </UserControl>

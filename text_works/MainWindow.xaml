@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Text Works" Height="450" Width="800"
-        MinHeight="300" MinWidth="400">
+        Title="Text Works"
+        Height="600" Width="800"
+        MinHeight="600" MinWidth="800"
+        ResizeMode="CanResize"
+        WindowState="Maximized">
 
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="Esc" />

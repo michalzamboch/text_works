@@ -5,29 +5,49 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UI.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-        
-    <StackPanel Margin="10">
-        <Label FontWeight="Bold">Input:</Label>
+             d:DesignHeight="600" d:DesignWidth="800">
+
+    <Grid Margin="10" Height="Auto" Width="Auto">
+
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="30"/>
+            <RowDefinition MinHeight="100" Height="40*"/>
+            <RowDefinition MinHeight="30" />
+            <RowDefinition MinHeight="100" Height="40*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" FontWeight="Bold">Input:</Label>
 
         <TextBox Name="TextWithDiacritics"
                  TextWrapping="Wrap"
                  AcceptsReturn="True"
                  VerticalScrollBarVisibility="Visible"
-                 TextChanged="TextWithDiacritics_TextChanged"/>
+                 TextChanged="TextWithDiacritics_TextChanged"
+                 Height="Auto"
+                 Width="Auto"
+                 VerticalAlignment="Stretch"
+                 HorizontalAlignment="Stretch"
+                 Grid.Row="1"/>
 
-        <Label FontWeight="Bold">Result:</Label>
+        <Label Grid.Row="2" FontWeight="Bold">Result:</Label>
 
         <TextBox Name="TextWithoutDiacritics"
+                 Grid.Row="3"
                  TextWrapping="Wrap"
                  AcceptsReturn="True"
                  VerticalScrollBarVisibility="Visible"
-                 IsReadOnly="True"/>
+                 IsReadOnly="True"
+                 Height="Auto"
+                 Width="Auto"
+                 VerticalAlignment="Stretch"
+                 HorizontalAlignment="Stretch"/>
 
         <StackPanel
             Orientation="Horizontal"
             HorizontalAlignment="Left"
-            Margin="0 5">
+            Margin="0 5"
+            Grid.Row="4">
             <Button 
                 x:Name="ClearButton"
                 Padding="15 0 15 0"
@@ -60,5 +80,5 @@
                 Save
             </Button>
         </StackPanel>
-    </StackPanel>
+    </Grid>
 </UserControl>
