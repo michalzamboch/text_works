@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
 
-    <Grid Height="Auto" Width="Auto">
+    <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="25"/>
